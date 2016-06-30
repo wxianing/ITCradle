@@ -9,15 +9,15 @@ import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.Event;
 import org.xutils.view.annotation.ViewInject;
 
-//库存管理
-@ContentView(R.layout.activity_inventory_manager)
-public class InventoryManagerActivity extends BaseActivity {
+@ContentView(R.layout.activity_my_collect)
+public class MyCollectActivity extends BaseActivity {
+
     @ViewInject(R.id.title_tv)
     private TextView title;
 
     @Override
     public void onInitView() {
-        title.setText("库存管理");
+        title.setText("我的收藏");
     }
 
     @Event(value = {R.id.back_arrows})

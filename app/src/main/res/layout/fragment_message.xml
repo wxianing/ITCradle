@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/default_color"
+    android:background="@color/default_bg"
     android:orientation="vertical"
     tools:context="com.meidp.itcradle.fragment.MessageFragment">
 

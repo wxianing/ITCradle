@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/default_color"
+    android:background="@color/default_bg"
     android:orientation="vertical"
     tools:context="com.meidp.itcradle.fragment.MyFragment">
 
@@ -64,6 +64,7 @@
 
 
             <LinearLayout
+                android:id="@+id/inventory_manager"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dp10"
@@ -96,6 +97,7 @@
             <include layout="@layout/horizontal_line" />
 
             <LinearLayout
+                android:id="@+id/order_manager"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/white"
@@ -127,6 +129,7 @@
             <include layout="@layout/horizontal_line" />
 
             <LinearLayout
+                android:id="@+id/client_manager"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/white"
@@ -156,6 +159,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/rotation_rate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dp10"
@@ -219,6 +223,7 @@
             <include layout="@layout/horizontal_line" />
 
             <LinearLayout
+                android:id="@+id/profit_margin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/white"
@@ -278,6 +283,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/my_footprint"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dp10"
@@ -309,6 +315,7 @@
             <include layout="@layout/horizontal_line" />
 
             <LinearLayout
+                android:id="@+id/my_collect"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/white"

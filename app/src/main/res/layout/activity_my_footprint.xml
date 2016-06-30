@@ -5,12 +5,14 @@
     android:layout_height="match_parent"
     android:background="@color/default_bg"
     android:orientation="vertical"
-    tools:context="com.meidp.itcradle.activity.InventoryManagerActivity">
+    tools:context="com.meidp.itcradle.activity.MyFootprintActivity">
 
     <include layout="@layout/titlebar" />
 
-    <include layout="@layout/search_layout" />
+    <include layout="@layout/item_footprint_list1" />
 
-    <include layout="@layout/item_inventory_list" />
+    <include layout="@layout/horizontal_line" />
+
+    <include layout="@layout/item_footprint_list2"/>
 
 </LinearLayout>

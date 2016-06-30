@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:padding="@dimen/dp5">
+
+    <ImageView
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:padding="@dimen/dp5"
+        android:scaleType="fitXY"
+        android:src="@mipmap/default_icon" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="110dp"
+        android:layout_marginLeft="@dimen/dp10">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp5"
+            android:text="联想(Lenovo) IdeaPad 700S 14英寸笔记本电脑"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp16" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="@dimen/dp10"
+            android:layout_marginTop="@dimen/dp15"
+            android:text="库存2000件" />
+
+    </RelativeLayout>
+
+</LinearLayout>

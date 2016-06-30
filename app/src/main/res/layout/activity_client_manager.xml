@@ -3,14 +3,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/default_bg"
     android:orientation="vertical"
-    tools:context="com.meidp.itcradle.activity.InventoryManagerActivity">
+    android:background="@color/default_bg"
+    tools:context="com.meidp.itcradle.activity.ClientManagerActivity">
 
     <include layout="@layout/titlebar" />
 
     <include layout="@layout/search_layout" />
 
-    <include layout="@layout/item_inventory_list" />
-
+    <ExpandableListView
+        android:id="@+id/expListView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 </LinearLayout>

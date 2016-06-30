@@ -3,14 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/default_bg"
     android:orientation="vertical"
-    tools:context="com.meidp.itcradle.activity.InventoryManagerActivity">
+    tools:context="com.meidp.itcradle.activity.MessageCenterActivity">
 
     <include layout="@layout/titlebar" />
 
-    <include layout="@layout/search_layout" />
+    <include layout="@layout/item_message_center_list" />
 
-    <include layout="@layout/item_inventory_list" />
+    <include layout="@layout/item_message_center_list" />
 
 </LinearLayout>

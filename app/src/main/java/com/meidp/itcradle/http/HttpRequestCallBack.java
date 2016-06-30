@@ -9,7 +9,7 @@ import com.android.volley.VolleyError;
  * 时  间：2016/6/18
  */
 
-public abstract class HttpRequestListener {
+public abstract class HttpRequestCallBack {
 
     public abstract void onSuccess(String result);
 

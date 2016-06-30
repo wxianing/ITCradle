@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:padding="@dimen/dp10">
+
+    <TextView
+        android:id="@+id/system_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="[系统消息]"
+        android:textColor="@color/textcolor_orange" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp10"
+        android:layout_toRightOf="@id/system_message"
+        android:text="最新联想笔记本"
+        android:textColor="@color/black" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:text="2016.06.12 15:30" />
+
+</RelativeLayout>
