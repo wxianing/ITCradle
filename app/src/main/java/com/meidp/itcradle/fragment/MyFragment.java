@@ -9,6 +9,7 @@ import android.widget.TextView;
 import com.meidp.itcradle.R;
 import com.meidp.itcradle.activity.ClientManagerActivity;
 import com.meidp.itcradle.activity.InventoryManagerActivity;
+import com.meidp.itcradle.activity.MessageCenterActivity;
 import com.meidp.itcradle.activity.MyCollectActivity;
 import com.meidp.itcradle.activity.MyFootprintActivity;
 import com.meidp.itcradle.activity.OrderManagerActivity;
@@ -37,7 +38,8 @@ public class MyFragment extends BaseFragment {
         title.setText("我的");
     }
 
-    @Event(value = {R.id.person_center, R.id.inventory_manager, R.id.order_manager, R.id.client_manager, R.id.rotation_rate, R.id.profit_margin, R.id.my_footprint, R.id.my_collect})
+    @Event(value = {R.id.person_center, R.id.inventory_manager, R.id.order_manager, R.id.client_manager,
+            R.id.rotation_rate, R.id.profit_margin, R.id.my_footprint, R.id.my_collect, R.id.message_center})
     private void onClick(View v) {
         Intent intent = new Intent();
         switch (v.getId()) {
@@ -71,6 +73,10 @@ public class MyFragment extends BaseFragment {
                 break;
             case R.id.my_collect://我的收藏
                 intent.setClass(getActivity(), MyCollectActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.message_center://消息中心
+                intent.setClass(getActivity(), MessageCenterActivity.class);
                 startActivity(intent);
                 break;
         }

@@ -26,6 +26,7 @@ public class LoginActivity extends BaseActivity {
             case R.id.login_btn:
                 intent.setClass(this, MainActivity.class);
                 startActivity(intent);
+                this.finish();
                 break;
         }
     }
