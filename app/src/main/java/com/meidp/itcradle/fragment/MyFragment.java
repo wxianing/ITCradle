@@ -37,7 +37,7 @@ public class MyFragment extends BaseFragment {
         title.setText("我的");
     }
 
-    @Event(value = {R.id.person_center, R.id.inventory_manager, R.id.order_manager, R.id.client_manager, R.id.rotation_rate, R.id.profit_margin, R.id.my_footprint,R.id.my_collect})
+    @Event(value = {R.id.person_center, R.id.inventory_manager, R.id.order_manager, R.id.client_manager, R.id.rotation_rate, R.id.profit_margin, R.id.my_footprint, R.id.my_collect})
     private void onClick(View v) {
         Intent intent = new Intent();
         switch (v.getId()) {
@@ -65,11 +65,11 @@ public class MyFragment extends BaseFragment {
                 intent.setClass(getActivity(), ProfitMarginActivity.class);
                 startActivity(intent);
                 break;
-            case R.id.my_footprint:
+            case R.id.my_footprint://我的足迹
                 intent.setClass(getActivity(), MyFootprintActivity.class);
                 startActivity(intent);
                 break;
-            case R.id.my_collect:
+            case R.id.my_collect://我的收藏
                 intent.setClass(getActivity(), MyCollectActivity.class);
                 startActivity(intent);
                 break;

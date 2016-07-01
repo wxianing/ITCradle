@@ -9,20 +9,18 @@ import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.Event;
 import org.xutils.view.annotation.ViewInject;
 
-/**
- * 我的利润
- */
-@ContentView(R.layout.activity_rotation_rate)
-public class RotationRateActivity extends BaseActivity {
+
+@ContentView(R.layout.activity_perfect_information)
+public class PerfectInformationActivity extends BaseActivity {
     @ViewInject(R.id.title_tv)
     private TextView title;
 
     @Override
     public void onInitView() {
-        title.setText("我的库存周转率");
+        title.setText("完善信息");
     }
 
-    @Event(value = {R.id.back_arrows})
+    @Event(R.id.back_arrows)
     private void onClick(View v) {
         switch (v.getId()) {
             case R.id.back_arrows:
