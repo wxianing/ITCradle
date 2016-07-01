@@ -20,10 +20,10 @@ public class OrderManagerActivity extends BaseActivity {
         title.setText("订单管理");
     }
 
+
     @Event(value = {R.id.back_arrows, R.id.procurement_order})
     private void onClick(View v) {
         Intent intent = new Intent();
-
         switch (v.getId()) {
             case R.id.back_arrows:
                 finish();

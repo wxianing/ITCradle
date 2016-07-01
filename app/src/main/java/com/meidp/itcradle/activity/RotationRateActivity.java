@@ -10,7 +10,7 @@ import org.xutils.view.annotation.Event;
 import org.xutils.view.annotation.ViewInject;
 
 /**
- * 我的利润
+ * 我的库存周转率
  */
 @ContentView(R.layout.activity_rotation_rate)
 public class RotationRateActivity extends BaseActivity {

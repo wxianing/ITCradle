@@ -11,6 +11,7 @@ import com.meidp.itcradle.model.Child;
 import com.meidp.itcradle.model.Group;
 
 import org.xutils.view.annotation.ContentView;
+import org.xutils.view.annotation.Event;
 import org.xutils.view.annotation.ViewInject;
 
 import java.util.ArrayList;
@@ -56,6 +57,7 @@ public class ClientManagerActivity extends BaseActivity implements ExpandableLis
         expListView.expandGroup(0);
     }
 
+    @Event(value = {R.id.back_arrows})
     private void onClick(View v) {
         switch (v.getId()) {
             case R.id.back_arrows:
