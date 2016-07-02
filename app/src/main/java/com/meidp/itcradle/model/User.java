@@ -10,52 +10,6 @@ import java.io.Serializable;
  */
 public class User implements Serializable {
 
-
-    /**
-     * ParentId : null
-     * sex : 0
-     * AreaId : null
-     * CreateUserCnName : null
-     * ParentType : null
-     * StructureName : null
-     * CreateUserId : null
-     * UserName : ios
-     * MicroMessage : null
-     * CnName : 梁健聪
-     * Code : 337343df6bae468a8eacd93176d240cd
-     * AbroadCountryId : null
-     * PasswordSalt :
-     * BindShopState : null
-     * UpdateUserId : 210
-     * QQ : null
-     * Mobile : 136469828
-     * AreaName : null
-     * BindShopId : null
-     * UserPassword :
-     * ShopState : null
-     * EnName : null
-     * ParentMobile : null
-     * UserType : 2
-     * Parent : null
-     * AbroadStatusTime : null
-     * UpdateTime : 2016-06-20 08:34:53
-     * StudentContractNo : null
-     * UserId : 210
-     * Photo : http://wx.qlogo.cn/mmopen/SCug0ESSOHibTqEjLnnadFBpWoiaaWpEX8JTvwfGsvsES6EUHBA43jIj7DARiclMibs21aYBdGyXFQPo3zLb9ibh9Bz0whq1miaofU/0
-     * RoleName : null
-     * Status : 1
-     * HunYin : 0
-     * Email : null
-     * CreateTime : null
-     * AbroadStatus : null
-     * StudentContractTypeName : null
-     * Address : null
-     * Gender : null
-     * UpdateUserCnName : 梁健聪
-     * Remark :
-     * AbroadCountryName : null
-     */
-
     private Object ParentId;
     private int sex;
     private Object AreaId;

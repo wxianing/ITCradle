@@ -22,6 +22,8 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.ListIterator;
 
+import cn.sharesdk.framework.ShareSDK;
+
 /**
  * Package：com.meist.pinfan.utils
  * 作  用：
@@ -42,6 +44,7 @@ public class MyApplication extends Application {
     public void onCreate() {
         super.onCreate();
         mInstance = this;
+        ShareSDK.initSDK(this);
         x.Ext.init(this);
         x.Ext.setDebug(BuildConfig.DEBUG);
         initImageLoader(getApplicationContext());
@@ -93,11 +96,11 @@ public class MyApplication extends Application {
     }
 
     public void addActivity(Activity activity) {
-         activitys.add(activity);
+        activitys.add(activity);
     }
 
     public void removeActivity(Activity activity) {
-           activitys.remove(activity);
+        activitys.remove(activity);
     }
 
     public void closeActivitys() {

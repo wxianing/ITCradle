@@ -39,7 +39,9 @@
         <item name="android:gravity">center</item>
         <item name="android:textColor">@color/main_rg_color</item>
         <item name="android:textSize">13sp</item>
-
     </style>
-
+    <!--CheckBox风格-->
+    <style name="MyCheckBox" parent="@android:style/Widget.CompoundButton.CheckBox">
+        <item name="android:button">@drawable/checkbox_selector</item>
+    </style>
 </resources>

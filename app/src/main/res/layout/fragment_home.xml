@@ -5,11 +5,28 @@
     android:background="@color/default_bg"
     tools:context="com.meidp.itcradle.fragment.HomeFragment">
 
-    <TextView
-        android:id="@+id/tv"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="首页" />
+        android:layout_height="45dp"
+        android:layout_marginLeft="@dimen/dp10"
+        android:layout_marginRight="@dimen/dp10"
+        android:layout_marginTop="180dp"
+        android:background="@drawable/linear_white_bg"
+        android:padding="@dimen/dp1">
 
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/transparent" />
+
+        <Button
+            android:id="@+id/search_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@drawable/btn_blue_bg"
+            android:text="搜索"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp18" />
+    </LinearLayout>
 </LinearLayout>

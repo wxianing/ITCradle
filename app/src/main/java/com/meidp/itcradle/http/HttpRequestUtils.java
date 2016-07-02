@@ -12,6 +12,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.meidp.itcradle.MyApplication;
 import com.meidp.itcradle.utils.Constant;
 import com.meidp.itcradle.utils.CustomDialogUtils;
+import com.meidp.itcradle.utils.LogUtils;
 
 
 import org.json.JSONObject;
@@ -42,6 +43,7 @@ public class HttpRequestUtils {
         return mInstance;
     }
 
+
     /**
      * Volley方式请求数据
      *
@@ -51,12 +53,14 @@ public class HttpRequestUtils {
      * @param listener
      */
     public void send(Context mContext, String url, HashMap params, final HttpRequestCallBack listener) {
-        CustomDialogUtils.showProgressDialog(mContext);
+        if (!url.equals(Constant.LOGIN_BY_THIRD)) {
+            CustomDialogUtils.showProgressDialog(mContext);
+        }
         Log.e("addParams:", JSON.toJSONString(params));
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, url, JSON.toJSONString(params), new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
-                Log.e("response", response.toString());
+                LogUtils.e("response", response.toString());
                 listener.onSuccess(response.toString());
                 CustomDialogUtils.cannelProgressDialog();
             }
@@ -79,12 +83,56 @@ public class HttpRequestUtils {
     }
 
     /**
+     * 发送post请求
+     */
+    public void post(Context mContext, String url, Map<String, Object> map, final HttpRequestCallBack mCallBack) {
+        if (!url.equals(Constant.LOGIN_BY_THIRD)) {
+            CustomDialogUtils.showProgressDialog(mContext);
+        }
+        RequestParams params = new RequestParams(url);
+        params.addHeader("_appId", Constant.APPID);
+        params.addHeader("_code", Constant.CODE);
+        params.addBodyParameter("content-type", "application/json");
+        if (null != map) {
+            for (Map.Entry<String, Object> entry : map.entrySet()) {
+                params.addParameter(entry.getKey(), entry.getValue());
+            }
+        }
+        x.http().post(params, new Callback.CommonCallback<String>() {
+            @Override
+            public void onSuccess(String result) {
+                LogUtils.e("Response", result);
+                mCallBack.onSuccess(result);
+                CustomDialogUtils.cannelProgressDialog();
+            }
+
+            @Override
+            public void onError(Throwable ex, boolean isOnCallback) {
+                CustomDialogUtils.cannelProgressDialog();
+            }
+
+            @Override
+            public void onCancelled(CancelledException cex) {
+                CustomDialogUtils.cannelProgressDialog();
+            }
+
+            @Override
+            public void onFinished() {
+                CustomDialogUtils.cannelProgressDialog();
+            }
+        });
+    }
+
+    /**
      * 发送get请求
      */
 
-    public void Get(Context mContext, String url, Map<String, String> map, final HttpRequestCallBack mCallBack) {
+    public void get(Context mContext, String url, Map<String, String> map, final HttpRequestCallBack mCallBack) {
         CustomDialogUtils.showProgressDialog(mContext);
         RequestParams params = new RequestParams(url);
+        params.addHeader("_appId", Constant.APPID);
+        params.addHeader("_code", Constant.CODE);
+        params.addBodyParameter("content-type", "application/json");
         if (null != map) {
             for (Map.Entry<String, String> entry : map.entrySet()) {
                 params.addQueryStringParameter(entry.getKey(), entry.getValue());
@@ -114,47 +162,15 @@ public class HttpRequestUtils {
         });
     }
 
-    /**
-     * 发送post请求
-     */
-    public void Post(Context mContext, String url, Map<String, Object> map, final HttpRequestCallBack mCallBack) {
-        CustomDialogUtils.showProgressDialog(mContext);
-        RequestParams params = new RequestParams(url);
-        if (null != map) {
-            for (Map.Entry<String, Object> entry : map.entrySet()) {
-                params.addParameter(entry.getKey(), entry.getValue());
-            }
-        }
-        x.http().post(params, new Callback.CommonCallback<String>() {
-            @Override
-            public void onSuccess(String result) {
-                mCallBack.onSuccess(result);
-                CustomDialogUtils.cannelProgressDialog();
-            }
-
-            @Override
-            public void onError(Throwable ex, boolean isOnCallback) {
-                CustomDialogUtils.cannelProgressDialog();
-            }
-
-            @Override
-            public void onCancelled(CancelledException cex) {
-                CustomDialogUtils.cannelProgressDialog();
-            }
-
-            @Override
-            public void onFinished() {
-                CustomDialogUtils.cannelProgressDialog();
-            }
-        });
-    }
-
 
     /**
      * 上传文件
      */
-    public void UpLoadFile(String url, Map<String, Object> map) {
+    public void upLoadFile(String url, Map<String, Object> map) {
         RequestParams params = new RequestParams(url);
+        params.addHeader("_appId", Constant.APPID);
+        params.addHeader("_code", Constant.CODE);
+        params.addBodyParameter("content-type", "application/json");
         if (null != map) {
             for (Map.Entry<String, Object> entry : map.entrySet()) {
                 params.addParameter(entry.getKey(), entry.getValue());
@@ -187,8 +203,11 @@ public class HttpRequestUtils {
     /**
      * 下载文件
      */
-    public void DownLoadFile(String url, String filepath) {
+    public void downLoadFile(String url, String filepath) {
         RequestParams params = new RequestParams(url);
+        params.addHeader("_appId", Constant.APPID);
+        params.addHeader("_code", Constant.CODE);
+        params.addBodyParameter("content-type", "application/json");
         //设置断点续传
         params.setAutoResume(true);
         params.setSaveFilePath(filepath);
