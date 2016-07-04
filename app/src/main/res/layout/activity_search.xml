@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.meidp.itcradle.activity.SearchActivity">
+
+    <include layout="@layout/search_titlebar" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp50"
+        android:background="@color/white">
+
+        <TextView
+            android:id="@+id/sales_volume"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="销量"
+            android:textColor="@color/textcolor_black"
+            android:textSize="@dimen/sp16" />
+
+        <TextView
+            android:id="@+id/price_index"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="价格指数"
+            android:textColor="@color/textcolor_black"
+            android:textSize="@dimen/sp16" />
+
+        <TextView
+            android:id="@+id/profit_margin"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="利润率"
+            android:textColor="@color/textcolor_black"
+            android:textSize="@dimen/sp16" />
+
+        <TextView
+            android:id="@+id/click_rate"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="点击量"
+            android:textColor="@color/textcolor_black"
+            android:textSize="@dimen/sp16" />
+    </LinearLayout>
+    <include layout="@layout/horizontal_full_line"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp60"
+        android:gravity="center_vertical"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/supplier_text"
+            android:layout_width="@dimen/dp80"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp30"
+            android:background="@color/white"
+            android:gravity="center"
+            android:padding="@dimen/dp5"
+            android:text="供应商" />
+
+        <TextView
+            android:id="@+id/produce_text"
+            android:layout_width="@dimen/dp80"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp30"
+            android:background="@color/gray_light"
+            android:gravity="center"
+            android:padding="@dimen/dp5"
+            android:text="产品" />
+    </LinearLayout>
+
+    <include layout="@layout/item_search_list" />
+</LinearLayout>

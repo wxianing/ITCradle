@@ -19,4 +19,8 @@ public class Constant {
 
     //第三方账号登录
     public static final String LOGIN_BY_THIRD = BASE_URL + "common/user/loginbythird";
+    //广告轮播图
+    public static final String BANNER_URL = BASE_URL + "article/advertise/getlist";//
+
+    public static final String INFORMATIONS_URL = BASE_URL + "article/article/getarticlelist";
 }

@@ -16,6 +16,7 @@ import com.meidp.itcradle.activity.OrderManagerActivity;
 import com.meidp.itcradle.activity.PersonalInformationActivity;
 import com.meidp.itcradle.activity.ProfitMarginActivity;
 import com.meidp.itcradle.activity.RotationRateActivity;
+import com.meidp.itcradle.activity.SettingActivity;
 
 import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.Event;
@@ -39,7 +40,8 @@ public class MyFragment extends BaseFragment {
     }
 
     @Event(value = {R.id.person_center, R.id.inventory_manager, R.id.order_manager, R.id.client_manager,
-            R.id.rotation_rate, R.id.profit_margin, R.id.my_footprint, R.id.my_collect, R.id.message_center})
+            R.id.rotation_rate, R.id.profit_margin, R.id.my_footprint, R.id.my_collect, R.id.message_center,
+            R.id.setting})
     private void onClick(View v) {
         Intent intent = new Intent();
         switch (v.getId()) {
@@ -77,6 +79,10 @@ public class MyFragment extends BaseFragment {
                 break;
             case R.id.message_center://消息中心
                 intent.setClass(getActivity(), MessageCenterActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.setting:
+                intent.setClass(getActivity(), SettingActivity.class);
                 startActivity(intent);
                 break;
         }

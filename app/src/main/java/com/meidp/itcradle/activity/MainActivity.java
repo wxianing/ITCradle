@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.KeyEvent;
+import android.view.View;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
@@ -14,8 +15,10 @@ import com.meidp.itcradle.fragment.HomeFragment;
 import com.meidp.itcradle.fragment.MessageFragment;
 import com.meidp.itcradle.fragment.MyFragment;
 import com.meidp.itcradle.fragment.ServiceFragment;
+import com.meidp.itcradle.utils.ToastUtils;
 
 import org.xutils.view.annotation.ContentView;
+import org.xutils.view.annotation.Event;
 import org.xutils.view.annotation.ViewInject;
 
 import java.util.ArrayList;
@@ -30,6 +33,7 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
     private List<Fragment> mFragments;
     private FragmentManager manager;
     private long exitTime = 0;
+    public static MainActivity mainActivity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,9 +42,11 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
 
     @Override
     public void onInitView() {
+        mainActivity = this;
         mFragments = new ArrayList<>();
         mFragments.add(new HomeFragment());
         mFragments.add(new MessageFragment());
+        mFragments.add(new ServiceFragment());
         mFragments.add(new ServiceFragment());
         mFragments.add(new MyFragment());
 
@@ -66,6 +72,11 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
                 t.commit();
             }
         }
+    }
+
+    @Event(R.id.logo_icon)
+    private void onClick(View v) {
+        ToastUtils.shows(this, "这是logo图标");
     }
 
     /**

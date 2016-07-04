@@ -57,9 +57,11 @@ public class LoginActivity extends BaseActivity implements PlatformActionListene
     private Platform pla;
     private ProgressDialog loadingDialog;
 
+    public static LoginActivity activity;
+
     @Override
     public void onInitView() {
-
+        activity = this;
         userName = SharedPreferencesUtils.getStringData(this, "USERNAME", null);
         passWord = SharedPreferencesUtils.getStringData(this, "PASSWORD", null);
         isRmb = SharedPreferencesUtils.getbooleanData(this, "ISRMB", false);

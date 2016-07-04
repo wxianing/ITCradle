@@ -85,7 +85,7 @@ public class HttpRequestUtils {
     /**
      * 发送post请求
      */
-    public void post(Context mContext, String url, Map<String, Object> map, final HttpRequestCallBack mCallBack) {
+    public void post(Context mContext, String url, HashMap<String, Object> map, final HttpRequestCallBack mCallBack) {
         if (!url.equals(Constant.LOGIN_BY_THIRD)) {
             CustomDialogUtils.showProgressDialog(mContext);
         }

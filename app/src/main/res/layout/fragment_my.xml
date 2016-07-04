@@ -81,11 +81,12 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@mipmap/user_img" />
+                    android:src="@mipmap/inventory_manager_icon" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp5"
                     android:layout_weight="1"
                     android:text="库存管理"
                     android:textSize="@dimen/sp16" />
@@ -113,11 +114,12 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@mipmap/user_img" />
+                    android:src="@mipmap/order_manager_icon" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp5"
                     android:layout_weight="1"
                     android:text="订单管理"
                     android:textSize="@dimen/sp16" />
@@ -145,11 +147,12 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@mipmap/user_img" />
+                    android:src="@mipmap/client_manager_icon" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp5"
                     android:layout_weight="1"
                     android:text="客户管理"
                     android:textSize="@dimen/sp16" />
@@ -176,11 +179,12 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@mipmap/user_img" />
+                    android:src="@mipmap/rotation_rate_icon" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp5"
                     android:layout_weight="1"
                     android:text="我的库存周转率"
                     android:textSize="@dimen/sp16" />
@@ -195,6 +199,7 @@
             <include layout="@layout/horizontal_line" />
 
             <LinearLayout
+                android:id="@+id/receivable_rate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/white"
@@ -207,11 +212,12 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@mipmap/user_img" />
+                    android:src="@mipmap/receivable_rate_icon" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp5"
                     android:layout_weight="1"
                     android:text="我的应收周转率"
                     android:textSize="@dimen/sp16" />
@@ -239,11 +245,12 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@mipmap/user_img" />
+                    android:src="@mipmap/profit_margin_icon" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp5"
                     android:layout_weight="1"
                     android:text="我的利润"
                     android:textSize="@dimen/sp16" />
@@ -256,6 +263,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/data_analysis"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dp10"
@@ -269,11 +277,12 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@mipmap/user_img" />
+                    android:src="@mipmap/data_analysis_icon" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp5"
                     android:layout_weight="1"
                     android:text="市场数据分析"
                     android:textSize="@dimen/sp16" />
@@ -300,11 +309,12 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@mipmap/user_img" />
+                    android:src="@mipmap/my_footprint_icon" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp5"
                     android:layout_weight="1"
                     android:text="我的足迹"
                     android:textSize="@dimen/sp16" />
@@ -362,11 +372,12 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@mipmap/user_img" />
+                    android:src="@mipmap/message_center_icon" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp5"
                     android:layout_weight="1"
                     android:text="消息中心"
                     android:textSize="@dimen/sp16" />
@@ -378,6 +389,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/setting"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/dp30"
@@ -392,11 +404,12 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@mipmap/user_img" />
+                    android:src="@mipmap/setting_icon" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp5"
                     android:layout_weight="1"
                     android:text="设置"
                     android:textSize="@dimen/sp16" />
