@@ -17,6 +17,7 @@ public class ServiceFragment extends BaseFragment {
     private ImageView backImg;
 
     public ServiceFragment() {
+
     }
 
     @Override
@@ -25,4 +26,5 @@ public class ServiceFragment extends BaseFragment {
         backImg.setVisibility(View.GONE);
         title.setText("客服与投诉");
     }
+
 }

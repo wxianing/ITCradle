@@ -1,12 +1,15 @@
 package com.meidp.itcradle.activity;
 
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.res.ColorStateList;
 import android.content.res.Resources;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.meidp.itcradle.R;
+import com.meidp.itcradle.utils.NullUtils;
 
 import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.Event;
@@ -25,26 +28,44 @@ public class SearchActivity extends BaseActivity {
     private Resources resources;
     private ColorStateList colorBlack;
     private ColorStateList colorBlue;
-    private ColorStateList colorWhite;
-    private ColorStateList colorGray;
+
     @ViewInject(R.id.supplier_text)
     private TextView supplier;//供应商
     @ViewInject(R.id.produce_text)
     private TextView produce;//产品
 
+    private String type;
+    @ViewInject(R.id.search_edittext)
+    private EditText searchEdittext;
+    private String keyWord;
 
+    /**
+     * 初始化
+     */
     @Override
     public void onInitView() {
+        Intent intent = getIntent();
+        type = intent.getStringExtra("TYPE");
+        keyWord = intent.getStringExtra("KEYWORD");
+        if (NullUtils.isNull(type)) {
+            searchEdittext.setText(type + "  " + keyWord);
+        } else {
+            searchEdittext.setText(keyWord);
+        }
+        searchEdittext.setSelection(searchEdittext.getText().length());//把光标移到最后
         resources = getBaseContext().getResources();
         colorBlack = resources.getColorStateList(R.color.textcolor_black);
         colorBlue = resources.getColorStateList(R.color.textcolor_blue);
-        colorWhite = resources.getColorStateList(R.color.white);
-        colorGray = resources.getColorStateList(R.color.gray_light);
 
         salesVolume.setTextColor(colorBlue);
         supplier.setBackgroundResource(R.color.white);
     }
 
+    /**
+     * 点击事件处理
+     *
+     * @param v
+     */
     @Event(value = {R.id.back_arrows, R.id.sales_volume, R.id.price_index, R.id.profit_margin, R.id.click_rate, R.id.supplier_text, R.id.produce_text, R.id.check_contacts})
     private void onClick(View v) {
         Intent intent = new Intent();
@@ -77,8 +98,10 @@ public class SearchActivity extends BaseActivity {
                 produce.setBackgroundResource(R.color.white);
                 break;
             case R.id.check_contacts:
-//                intent.setClass(this,)
+                intent.setClass(this, ContactsActivity.class);
+                startActivity(intent);
                 break;
+
         }
     }
 

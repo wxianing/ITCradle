@@ -45,7 +45,7 @@ public class MessageFragment extends BaseFragment {
 
     @Override
     public void onInitView() {
-        super.onInitView();
+        title.setText("资讯中心");
         backImg.setVisibility(View.GONE);
         mDatas = new ArrayList<>();
         mAdapter = new InformationAdapter(mDatas, getActivity());

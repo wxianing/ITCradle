@@ -10,29 +10,29 @@
 
     <RadioButton
         style="@style/mainRgStyle"
-        android:drawableTop="@drawable/main_rg_home"
+        android:drawableTop="@drawable/main_rg_home_icon"
         android:text="首页" />
 
     <RadioButton
         style="@style/mainRgStyle"
-        android:drawableTop="@mipmap/main_rg_class_icon"
+        android:drawableTop="@drawable/main_rg_message_icon"
         android:text="资讯" />
 
     <ImageView
         android:id="@+id/logo_icon"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp50"
-        android:layout_weight="1"
+        android:layout_weight="1.1"
         android:src="@mipmap/ic_launcher" />
 
     <RadioButton
         style="@style/mainRgStyle"
-        android:drawableTop="@mipmap/main_rg_message_icon"
+        android:drawableTop="@drawable/main_rg_service_icon"
         android:text="客服" />
 
     <RadioButton
         style="@style/mainRgStyle"
-        android:drawableTop="@mipmap/main_rg_my_icon"
+        android:drawableTop="@drawable/main_rg_my_icon"
         android:text="我的" />
 
 </RadioGroup>

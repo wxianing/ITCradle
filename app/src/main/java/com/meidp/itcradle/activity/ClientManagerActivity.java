@@ -9,6 +9,7 @@ import com.meidp.itcradle.R;
 import com.meidp.itcradle.adapter.ExpandableAdapter;
 import com.meidp.itcradle.model.Child;
 import com.meidp.itcradle.model.Group;
+import com.meidp.itcradle.utils.ToastUtils;
 
 import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.Event;
@@ -45,7 +46,6 @@ public class ClientManagerActivity extends BaseActivity implements ExpandableLis
         childList1.add(new Child(R.mipmap.ic_launcher, "深圳三星电子经销商"));
         childList1.add(new Child(R.mipmap.ic_launcher, "深圳华为电子经销商"));
 
-
         g1.setChildList(childList1);
 
         list.add(g);
@@ -68,7 +68,7 @@ public class ClientManagerActivity extends BaseActivity implements ExpandableLis
 
     @Override
     public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
-        Toast.makeText(this, list.get(groupPosition).getChildList().get(childPosition).getName(), Toast.LENGTH_SHORT).show();
+        ToastUtils.shows(this, list.get(groupPosition).getChildList().get(childPosition).getName());
         return true;
     }
 }

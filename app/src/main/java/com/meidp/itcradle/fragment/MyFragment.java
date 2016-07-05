@@ -81,7 +81,7 @@ public class MyFragment extends BaseFragment {
                 intent.setClass(getActivity(), MessageCenterActivity.class);
                 startActivity(intent);
                 break;
-            case R.id.setting:
+            case R.id.setting://设置
                 intent.setClass(getActivity(), SettingActivity.class);
                 startActivity(intent);
                 break;

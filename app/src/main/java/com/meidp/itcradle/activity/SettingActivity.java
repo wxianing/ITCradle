@@ -5,6 +5,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.meidp.itcradle.R;
+import com.meidp.itcradle.utils.SharedPreferencesUtils;
 
 import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.Event;
@@ -33,6 +34,7 @@ public class SettingActivity extends BaseActivity {
                     LoginActivity.activity.finish();
                     LoginActivity.activity = null;
                     Intent intent = new Intent();
+                    SharedPreferencesUtils.setLoginTag(this, false);
                     intent.setClass(this, LoginActivity.class);
                     startActivity(intent);
                     finish();

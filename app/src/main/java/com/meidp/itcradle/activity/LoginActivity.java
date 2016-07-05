@@ -68,10 +68,18 @@ public class LoginActivity extends BaseActivity implements PlatformActionListene
         if (NullUtils.isNull(userName)) {
             usernameEt.setText(userName);
         }
-
+        /**
+         * 记住密码
+         */
         if (isRmb && NullUtils.isNull(passWord)) {
             passwordEt.setText(passWord);
             checkBox.setChecked(true);
+        }
+
+        //自动登录
+        boolean autoLogin = SharedPreferencesUtils.getLoginTag(this);
+        if (autoLogin) {
+            sendLogin();
         }
     }
 
@@ -84,35 +92,7 @@ public class LoginActivity extends BaseActivity implements PlatformActionListene
                 startActivity(intent);
                 break;
             case R.id.login_btn:
-                userName = usernameEt.getText().toString();
-                passWord = passwordEt.getText().toString();
-                if (NullUtils.isNull(userName) && NullUtils.isNull(passWord)) {
-                    HashMap map = new HashMap<>();
-                    map.put("UserName", userName);
-                    map.put("Password", passWord);
-                    HttpRequestUtils.getmInstance().post(LoginActivity.this, Constant.LOGIN_URL, map, new HttpRequestCallBack() {
-                        @Override
-                        public void onSuccess(String result) {
-                            AppBean<User> appBean = JSONObject.parseObject(result, new TypeReference<AppBean<User>>() {
-                            });
-                            if (null != appBean && appBean.getEnumcode() == 0) {
-                                ToastUtils.shows(LoginActivity.this, "登录成功");
-                                SharedPreferencesUtils.saveStringData(LoginActivity.this, "CODE", appBean.getData().getCode());
-                                SharedPreferencesUtils.saveStringData(LoginActivity.this, "USERNAME", userName);
-                                SharedPreferencesUtils.saveStringData(LoginActivity.this, "PASSWORD", passWord);
-                                SharedPreferencesUtils.saveUser(LoginActivity.this, appBean.getData());//保存User对象
-                                startActivity(new Intent(LoginActivity.this, MainActivity.class));
-                                finish();
-                            } else {
-                                ToastUtils.shows(LoginActivity.this, appBean.getMsg());
-                            }
-                        }
-                    });
-
-                } else {
-                    ToastUtils.shows(this, "用户名或密码不能为空！");
-                }
-
+                sendLogin();
                 break;
             case R.id.weixin_img:
                 Platform wechart = ShareSDK.getPlatform(Wechat.NAME);
@@ -132,6 +112,41 @@ public class LoginActivity extends BaseActivity implements PlatformActionListene
     }
 
     /**
+     * 登录
+     */
+    private void sendLogin() {
+        userName = usernameEt.getText().toString();
+        passWord = passwordEt.getText().toString();
+        if (NullUtils.isNull(userName) && NullUtils.isNull(passWord)) {
+            HashMap map = new HashMap<>();
+            map.put("UserName", userName);
+            map.put("Password", passWord);
+            HttpRequestUtils.getmInstance().post(LoginActivity.this, Constant.LOGIN_URL, map, new HttpRequestCallBack() {
+                @Override
+                public void onSuccess(String result) {
+                    AppBean<User> appBean = JSONObject.parseObject(result, new TypeReference<AppBean<User>>() {
+                    });
+                    if (null != appBean && appBean.getEnumcode() == 0) {
+                        ToastUtils.shows(LoginActivity.this, "登录成功");
+                        SharedPreferencesUtils.saveStringData(LoginActivity.this, "CODE", appBean.getData().getCode());
+                        SharedPreferencesUtils.saveStringData(LoginActivity.this, "USERNAME", userName);
+                        SharedPreferencesUtils.saveStringData(LoginActivity.this, "PASSWORD", passWord);
+                        SharedPreferencesUtils.saveUser(LoginActivity.this, appBean.getData());//保存User对象
+                        SharedPreferencesUtils.setLoginTag(LoginActivity.this, true);
+                        startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                        finish();
+                    } else {
+                        ToastUtils.shows(LoginActivity.this, appBean.getMsg());
+                    }
+                }
+            });
+
+        } else {
+            ToastUtils.shows(this, "用户名或密码不能为空！");
+        }
+    }
+
+    /**
      * CheckBox事件监听处理
      *
      * @param buttonView
@@ -144,6 +159,11 @@ public class LoginActivity extends BaseActivity implements PlatformActionListene
         }
     }
 
+    /**
+     * 授权三方登录
+     *
+     * @param plat
+     */
     private void authorize(Platform plat) {
         if (plat.isValid()) {
             plat.removeAccount();

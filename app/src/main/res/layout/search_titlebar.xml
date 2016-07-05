@@ -22,10 +22,10 @@
             android:src="@mipmap/left_arrow" />
 
         <EditText
-            android:layout_centerVertical="true"
-            android:id="@+id/title_tv"
+            android:id="@+id/search_edittext"
             android:layout_width="match_parent"
             android:layout_height="30dp"
+            android:layout_centerVertical="true"
             android:layout_toLeftOf="@+id/title_right"
             android:layout_toRightOf="@+id/back_arrows"
             android:background="@drawable/search_edittext"
@@ -35,16 +35,16 @@
             android:textSize="@dimen/sp14" />
 
         <TextView
-            android:textSize="@dimen/sp18"
-            android:layout_marginLeft="@dimen/dp10"
             android:id="@+id/title_right"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_alignParentRight="true"
+            android:layout_marginLeft="@dimen/dp10"
             android:layout_marginRight="10dp"
             android:layout_weight="2"
             android:gravity="center_vertical"
-            android:text="搜索" />
+            android:text="搜索"
+            android:textSize="@dimen/sp18" />
 
     </RelativeLayout>
 
