@@ -13,10 +13,12 @@ import com.meidp.itcradle.MyApplication;
 import com.meidp.itcradle.utils.Constant;
 import com.meidp.itcradle.utils.CustomDialogUtils;
 import com.meidp.itcradle.utils.LogUtils;
+import com.meidp.itcradle.utils.ToastUtils;
 
 
 import org.json.JSONObject;
 import org.xutils.common.Callback;
+import org.xutils.ex.HttpException;
 import org.xutils.http.RequestParams;
 import org.xutils.x;
 
@@ -85,7 +87,7 @@ public class HttpRequestUtils {
     /**
      * 发送post请求
      */
-    public void post(Context mContext, String url, HashMap<String, Object> map, final HttpRequestCallBack mCallBack) {
+    public void post(final Context mContext, String url, HashMap<String, Object> map, final HttpRequestCallBack mCallBack) {
         if (!url.equals(Constant.LOGIN_BY_THIRD)) {
             CustomDialogUtils.showProgressDialog(mContext);
         }
@@ -108,6 +110,13 @@ public class HttpRequestUtils {
 
             @Override
             public void onError(Throwable ex, boolean isOnCallback) {
+                ToastUtils.showl(mContext, ex.getMessage());
+                if (ex instanceof HttpException) {//网络异常
+                    HttpException httpEx = (HttpException) ex;
+                    int responseCode = httpEx.getCode();
+                    String responseMsg = httpEx.getMessage();
+                    String errorResult = httpEx.getResult();
+                }
                 CustomDialogUtils.cannelProgressDialog();
             }
 
@@ -161,7 +170,6 @@ public class HttpRequestUtils {
             }
         });
     }
-
 
     /**
      * 上传文件

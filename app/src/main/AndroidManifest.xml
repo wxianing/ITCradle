@@ -75,7 +75,8 @@
         <activity android:name=".activity.GuideActivity" />
         <activity android:name=".activity.SearchActivity" />
         <activity android:name=".activity.ContactsActivity" />
-        <activity android:name=".activity.SettingActivity"></activity>
+        <activity android:name=".activity.SettingActivity" />
+        <activity android:name=".activity.ProduceListActivity"></activity>
     </application>
 
 </manifest>

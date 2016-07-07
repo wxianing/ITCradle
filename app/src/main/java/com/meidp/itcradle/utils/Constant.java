@@ -21,6 +21,8 @@ public class Constant {
     public static final String LOGIN_BY_THIRD = BASE_URL + "common/user/loginbythird";
     //广告轮播图
     public static final String BANNER_URL = BASE_URL + "article/advertise/getlist";//
-
+    //资讯列表
     public static final String INFORMATIONS_URL = BASE_URL + "article/article/getarticlelist";
+
+    public static final String PRODUCE_LIST_URL = BASE_URL + "product/home/getproductlist";
 }

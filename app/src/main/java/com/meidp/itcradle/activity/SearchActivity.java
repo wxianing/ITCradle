@@ -1,7 +1,6 @@
 package com.meidp.itcradle.activity;
 
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.content.res.ColorStateList;
 import android.content.res.Resources;
 import android.view.View;
@@ -101,7 +100,6 @@ public class SearchActivity extends BaseActivity {
                 intent.setClass(this, ContactsActivity.class);
                 startActivity(intent);
                 break;
-
         }
     }
 

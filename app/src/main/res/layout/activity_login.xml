@@ -20,7 +20,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/dp30"
-        android:src="@mipmap/login_header_icon" />
+        android:src="@mipmap/logo_icon" />
 
 
     <EditText
@@ -30,6 +30,7 @@
         android:layout_marginTop="30dp"
         android:background="@drawable/transparent"
         android:drawableLeft="@mipmap/username_icon"
+        android:drawablePadding="@dimen/dp2"
         android:hint="用户名/手机号"
         android:textColor="@color/white"
         android:textColorHint="@color/white"

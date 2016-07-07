@@ -43,6 +43,7 @@ import cn.sharesdk.wechat.friends.Wechat;
 
 @ContentView(R.layout.activity_login)
 public class LoginActivity extends BaseActivity implements PlatformActionListener {
+
     @ViewInject(R.id.username_et)
     private EditText usernameEt;
     @ViewInject(R.id.password_et)

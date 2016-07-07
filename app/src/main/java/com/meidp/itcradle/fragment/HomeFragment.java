@@ -15,6 +15,9 @@ import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.TypeReference;
 import com.meidp.itcradle.R;
 import com.meidp.itcradle.activity.ClientManagerActivity;
+import com.meidp.itcradle.activity.MessageCenterActivity;
+import com.meidp.itcradle.activity.OrderManagerActivity;
+import com.meidp.itcradle.activity.ProduceListActivity;
 import com.meidp.itcradle.activity.SearchActivity;
 import com.meidp.itcradle.adapter.HomeGvAdapter;
 import com.meidp.itcradle.adapter.ImagePagerAdapter;
@@ -36,7 +39,6 @@ import java.util.List;
 
 @ContentView(R.layout.fragment_home)
 public class HomeFragment extends BaseFragment {
-
     /**
      * 头部广告
      */
@@ -91,8 +93,6 @@ public class HomeFragment extends BaseFragment {
         homeDatas.add(new HomeRes(R.mipmap.person_order_icon, "订单查询"));
         mGirdViewAdapter = new HomeGvAdapter(homeDatas, getActivity());
         mGridView.setAdapter(mGirdViewAdapter);
-
-
     }
 
     @Event(value = {R.id.grid_view}, type = AdapterView.OnItemClickListener.class)
@@ -104,8 +104,20 @@ public class HomeFragment extends BaseFragment {
                 intent.setClass(getActivity(), ClientManagerActivity.class);
                 startActivity(intent);
                 break;
+            case 5:
+                intent.setClass(getActivity(), MessageCenterActivity.class);
+                startActivity(intent);
+                break;
+            case 6:
+                intent.setClass(getActivity(), ProduceListActivity.class);
+                startActivity(intent);
+                break;
             case 7:
                 intent.setClass(getActivity(), SearchActivity.class);
+                startActivity(intent);
+                break;
+            case 8:
+                intent.setClass(getActivity(), OrderManagerActivity.class);
                 startActivity(intent);
                 break;
         }
