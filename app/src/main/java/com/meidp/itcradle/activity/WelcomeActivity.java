@@ -9,9 +9,9 @@ import android.view.Window;
 import android.view.WindowManager;
 
 import com.meidp.itcradle.R;
+import com.meidp.itcradle.http.HttpTask;
 
 import org.xutils.view.annotation.ContentView;
-
 
 @ContentView(R.layout.activity_welcome)
 public class WelcomeActivity extends Activity {
@@ -22,6 +22,7 @@ public class WelcomeActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         // 定义全屏参数
         int flag = WindowManager.LayoutParams.FLAG_FULLSCREEN;
@@ -30,7 +31,7 @@ public class WelcomeActivity extends Activity {
         // 设置当前窗体为全屏显示
         window.setFlags(flag, flag);
         setContentView(R.layout.activity_welcome);
-
+        HttpTask.detectionNewAppVersion(this, true, true);
         preferences = getSharedPreferences(CONFIG, MODE_PRIVATE);
         new Handler() {
             public void handleMessage(android.os.Message msg) {
@@ -46,9 +47,6 @@ public class WelcomeActivity extends Activity {
                 }
                 finish();
             }
-
-            ;
         }.sendEmptyMessageDelayed(0, 3000);
     }
-
 }

@@ -22,8 +22,8 @@
         android:id="@+id/logo_icon"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp50"
-        android:layout_weight="1.1"
-        android:src="@mipmap/ic_launcher" />
+        android:layout_weight="1"
+        android:src="@mipmap/logo_icons" />
 
     <RadioButton
         style="@style/mainRgStyle"

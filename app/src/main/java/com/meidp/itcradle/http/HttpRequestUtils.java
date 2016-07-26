@@ -45,7 +45,6 @@ public class HttpRequestUtils {
         return mInstance;
     }
 
-
     /**
      * Volley方式请求数据
      *
@@ -209,9 +208,10 @@ public class HttpRequestUtils {
     }
 
     /**
-     * 下载文件
+     * @param url      下载地址
+     * @param filepath 保存路径
      */
-    public void downLoadFile(String url, String filepath) {
+    public void downLoadFile(String url, String filepath, final MyProgressCallBack<File> mCallBack) {
         RequestParams params = new RequestParams(url);
         params.addHeader("_appId", Constant.APPID);
         params.addHeader("_code", Constant.CODE);
@@ -219,25 +219,41 @@ public class HttpRequestUtils {
         //设置断点续传
         params.setAutoResume(true);
         params.setSaveFilePath(filepath);
-        x.http().get(params, new Callback.CommonCallback<File>() {
+        x.http().get(params, new MyProgressCallBack<File>() {
             @Override
             public void onSuccess(File result) {
-
+                super.onSuccess(result);
+                mCallBack.onSuccess(result);
             }
 
             @Override
             public void onError(Throwable ex, boolean isOnCallback) {
-
+                mCallBack.onError(ex, isOnCallback);
             }
 
             @Override
             public void onCancelled(CancelledException cex) {
-
+                mCallBack.onCancelled(cex);
             }
 
             @Override
             public void onFinished() {
+                mCallBack.onFinished();
+            }
 
+            @Override
+            public void onWaiting() {
+                mCallBack.onWaiting();
+            }
+
+            @Override
+            public void onStarted() {
+                mCallBack.onStarted();
+            }
+
+            @Override
+            public void onLoading(long total, long current, boolean isDownloading) {
+                mCallBack.onLoading(total, current, isDownloading);
             }
         });
     }

@@ -26,16 +26,15 @@
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:layout_centerVertical="true"
-            android:layout_toLeftOf="@+id/title_right"
+            android:layout_toLeftOf="@+id/search_btn"
             android:layout_toRightOf="@+id/back_arrows"
             android:background="@drawable/search_edittext"
             android:gravity="center_vertical"
-            android:text="笔记本"
             android:textColor="@color/textcolor_gray"
             android:textSize="@dimen/sp14" />
 
         <TextView
-            android:id="@+id/title_right"
+            android:id="@+id/search_btn"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_alignParentRight="true"

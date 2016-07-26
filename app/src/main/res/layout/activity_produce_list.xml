@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical"
+    tools:context="com.meidp.itcradle.activity.ProduceListActivity">
+
+    <include layout="@layout/search_titlebar" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp50"
+        android:background="@color/white">
+
+        <TextView
+            android:id="@+id/sales_volume"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="销量"
+            android:textColor="@color/textcolor_black"
+            android:textSize="@dimen/sp16" />
+
+        <TextView
+            android:id="@+id/price_index"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="价格指数"
+            android:textColor="@color/textcolor_black"
+            android:textSize="@dimen/sp16" />
+
+        <TextView
+            android:id="@+id/profit_margin"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="利润率"
+            android:textColor="@color/textcolor_black"
+            android:textSize="@dimen/sp16" />
+
+        <TextView
+            android:id="@+id/click_rate"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="点击量"
+            android:textColor="@color/textcolor_black"
+            android:textSize="@dimen/sp16" />
+    </LinearLayout>
+
+    <include layout="@layout/horizontal_full_line" />
+
+    <ListView
+        android:id="@+id/list_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp10" />
+
+</LinearLayout>

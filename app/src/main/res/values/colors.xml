@@ -19,4 +19,5 @@
     <color name="textcolor_orange">#EC6000</color>
     <color name="textcolor_blue">#00BAED</color>
     <color name="gray_light">#E6E6E6</color>
+    <color name="main_rg_text_color">#00b8ec</color>
 </resources>

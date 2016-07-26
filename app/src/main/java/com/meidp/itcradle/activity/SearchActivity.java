@@ -25,6 +25,7 @@ public class SearchActivity extends BaseActivity {
     @ViewInject(R.id.click_rate)
     private TextView clickRate;//点击量
     private Resources resources;
+
     private ColorStateList colorBlack;
     private ColorStateList colorBlue;
 

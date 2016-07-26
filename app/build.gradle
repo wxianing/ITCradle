@@ -22,17 +22,6 @@ android {
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
-    compile 'com.android.support:appcompat-v7:23.4.0'
-    compile 'org.xutils:xutils:3.3.20'
-    compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
-    compile 'com.mcxiaoke.volley:library:1.0.18'
-    compile 'com.google.code.gson:gson:2.6.2'
-    compile 'com.squareup.okhttp:okhttp:2.7.5'
-    compile 'com.squareup.okhttp:okhttp-urlconnection:2.7.5'
-    compile 'com.squareup.okio:okio:1.8.0'
-    compile 'com.alibaba:fastjson:1.2.12'
-    compile 'com.android.support:support-v4:23.4.0'
-    compile 'com.android.support:design:23.4.0'
     compile files('libs/ksoap2-android-assembly-2.5.4-jar-with-dependencies.jar')
     compile files('libs/MobCommons-2016.0623.1641.jar')
     compile files('libs/MobTools-2016.0623.1641.jar')
@@ -50,4 +39,15 @@ dependencies {
     compile files('libs/ShareSDK-Wechat-Favorite-2.7.3.jar')
     compile files('libs/ShareSDK-Wechat-Moments-2.7.3.jar')
 
+    compile 'com.android.support:appcompat-v7:23.4.0'
+    compile 'org.xutils:xutils:3.3.20'
+    compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
+    compile 'com.mcxiaoke.volley:library:1.0.18'
+    compile 'com.google.code.gson:gson:2.6.2'
+    compile 'com.squareup.okhttp:okhttp:2.7.5'
+    compile 'com.squareup.okhttp:okhttp-urlconnection:2.7.5'
+    compile 'com.squareup.okio:okio:1.8.0'
+    compile 'com.alibaba:fastjson:1.2.12'
+    compile 'com.android.support:support-v4:23.4.0'
+    compile 'com.android.support:design:23.4.0'
 }

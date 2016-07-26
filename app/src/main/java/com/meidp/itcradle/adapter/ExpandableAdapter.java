@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.meidp.itcradle.R;
 import com.meidp.itcradle.model.Child;
 import com.meidp.itcradle.model.Group;
+import com.meidp.itcradle.view.CircleImageView;
 
 import java.util.List;
 
@@ -118,7 +119,6 @@ public class ExpandableAdapter extends BaseExpandableListAdapter {
     public boolean hasStableIds() {
         return false;
     }
-
 
     @Override
     public boolean isChildSelectable(int groupPosition, int childPosition) {

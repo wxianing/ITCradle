@@ -36,15 +36,15 @@ public class ClientManagerActivity extends BaseActivity implements ExpandableLis
 
         g.setTitle("东莞");
         ArrayList<Child> childList = new ArrayList<Child>();
-        childList.add(new Child(R.mipmap.ic_launcher, "东莞三星电子经销商"));
-        childList.add(new Child(R.mipmap.ic_launcher, "东莞华为电子经销商"));
+        childList.add(new Child(R.mipmap.hugh, "东莞三星电子经销商"));
+        childList.add(new Child(R.mipmap.hugh, "东莞华为电子经销商"));
         g.setChildList(childList);
 
         Group g1 = new Group();
         g1.setTitle("深圳");
         ArrayList<Child> childList1 = new ArrayList<Child>();
-        childList1.add(new Child(R.mipmap.ic_launcher, "深圳三星电子经销商"));
-        childList1.add(new Child(R.mipmap.ic_launcher, "深圳华为电子经销商"));
+        childList1.add(new Child(R.mipmap.hugh, "深圳三星电子经销商"));
+        childList1.add(new Child(R.mipmap.hugh, "深圳华为电子经销商"));
 
         g1.setChildList(childList1);
 

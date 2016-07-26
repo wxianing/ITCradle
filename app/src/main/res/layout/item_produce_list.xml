@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:padding="@dimen/dp5">
+
+    <ImageView
+        android:id="@+id/img"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:padding="@dimen/dp5"
+        android:scaleType="fitXY"
+        android:src="@mipmap/default_icon" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp5"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/produce_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp5"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:text="联想(Lenovo) IdeaPad 700S 14英寸笔记本电脑"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp16" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp10">
+
+            <TextView
+                android:id="@+id/sales_volume"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="销售量：188" />
+
+            <TextView
+                android:id="@+id/click_volume"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp15"
+                android:layout_toRightOf="@id/sales_volume"
+                android:text="点击量：188" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text="供货商"
+                android:textColor="@color/textcolor_blue"
+                android:textSize="@dimen/sp16" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp10">
+
+            <TextView
+                android:id="@+id/media_price_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="媒体价："
+                android:textSize="@dimen/sp12" />
+
+            <TextView
+                android:id="@+id/media_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/media_price_text"
+                android:text="￥6000"
+                android:textColor="@color/textcolor_orange"
+                android:textSize="@dimen/sp12" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@+id/price_indices"
+                android:text="价格指数："
+                android:textSize="@dimen/sp12" />
+
+            <TextView
+                android:id="@+id/price_indices"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text="￥5000"
+                android:textColor="@color/textcolor_orange"
+                android:textSize="@dimen/sp12" />
+        </RelativeLayout>
+    </LinearLayout>
+</LinearLayout>

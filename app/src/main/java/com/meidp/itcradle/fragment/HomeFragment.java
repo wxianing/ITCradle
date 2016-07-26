@@ -4,6 +4,9 @@ package com.meidp.itcradle.fragment;
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.content.res.Resources;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
@@ -54,45 +57,47 @@ public class HomeFragment extends BaseFragment {
     private GridView mGridView;
     private List<HomeRes> homeDatas;
     private HomeGvAdapter mGirdViewAdapter;
-
-    @ViewInject(R.id.desktop_computer)
-    private TextView desktopComputer;
-    @ViewInject(R.id.notebook_computer)
-    private TextView notebookComputer;
-    @ViewInject(R.id.service_computer)
-    private TextView seriverComputer;
-
-    private Resources resources;
-    private ColorStateList colorBlack;
-    private ColorStateList colorBlue;
-
-    private String type = "";
-    @ViewInject(R.id.search_edittext)
-    private EditText searchEdittext;
-
-    private String keyWord;
+    @ViewInject(R.id.view_pager)
+    private ViewPager myViewPager;
+    private List<Fragment> fragments;
 
     public HomeFragment() {
     }
 
     @Override
     public void onInitView() {
-        resources = getActivity().getBaseContext().getResources();
-        colorBlack = resources.getColorStateList(R.color.textcolor_black);
-        colorBlue = resources.getColorStateList(R.color.textcolor_blue);
+
         imageUrls = new ArrayList<>();
         homeDatas = new ArrayList<>();
-        homeDatas.add(new HomeRes(R.mipmap.person_activity_area_icon, "广告预约"));
-        homeDatas.add(new HomeRes(R.mipmap.person_activity_icon, "数据分析"));
-        homeDatas.add(new HomeRes(R.mipmap.person_collect_icon, "财务管理"));
-        homeDatas.add(new HomeRes(R.mipmap.person_connect_server, "客户管理"));
-        homeDatas.add(new HomeRes(R.mipmap.person_mybase_icon, "培训促销"));
-        homeDatas.add(new HomeRes(R.mipmap.person_myshare_icon, "消息推送"));
-        homeDatas.add(new HomeRes(R.mipmap.person_mywallet_icon, "选机中心"));
-        homeDatas.add(new HomeRes(R.mipmap.person_order_icon, "供应查询"));
-        homeDatas.add(new HomeRes(R.mipmap.person_order_icon, "订单查询"));
+        homeDatas.add(new HomeRes(R.mipmap.home_banner_icon, "广告预约"));
+        homeDatas.add(new HomeRes(R.mipmap.home_data_analysis, "数据分析"));
+        homeDatas.add(new HomeRes(R.mipmap.home_financial_management, "财务管理"));
+        homeDatas.add(new HomeRes(R.mipmap.home_client_manager, "客户管理"));
+        homeDatas.add(new HomeRes(R.mipmap.home_training_sales, "培训促销"));
+        homeDatas.add(new HomeRes(R.mipmap.home_message_push, "消息推送"));
+        homeDatas.add(new HomeRes(R.mipmap.home_select_center, "选机中心"));
+        homeDatas.add(new HomeRes(R.mipmap.home_suppe_selectr, "供应查询"));
+        homeDatas.add(new HomeRes(R.mipmap.home_order_select, "订单查询"));
         mGirdViewAdapter = new HomeGvAdapter(homeDatas, getActivity());
         mGridView.setAdapter(mGirdViewAdapter);
+
+
+        fragments = new ArrayList<>();
+        fragments.add(new NavbarFragment());
+        fragments.add(new NavbarFragment());
+
+
+        myViewPager.setAdapter(new FragmentPagerAdapter(getChildFragmentManager()) {
+            @Override
+            public Fragment getItem(int position) {
+                return fragments.get(position);
+            }
+
+            @Override
+            public int getCount() {
+                return fragments.size();
+            }
+        });
     }
 
     @Event(value = {R.id.grid_view}, type = AdapterView.OnItemClickListener.class)
@@ -124,10 +129,21 @@ public class HomeFragment extends BaseFragment {
 
     }
 
+    @Event(value = {R.id.search_edittext})
+    private void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.search_edittext:
+                Intent intent = new Intent();
+                intent.setClass(getActivity(), SearchActivity.class);
+                startActivity(intent);
+                break;
+        }
+    }
+
 
     @Override
     public void onInitData() {
-        HttpRequestUtils.getmInstance().post(getActivity(), Constant.BANNER_URL, null, new HttpRequestCallBack() {
+        HttpRequestUtils.getmInstance().post(getActivity(), Constant.BANNER_URL, null, new HttpRequestCallBack<String>() {
             @Override
             public void onSuccess(String result) {
                 AppBeans<Banner> appBeans = JSONObject.parseObject(result, new TypeReference<AppBeans<Banner>>() {
@@ -143,48 +159,6 @@ public class HomeFragment extends BaseFragment {
         });
     }
 
-    @Event(value = {R.id.search_btn, R.id.desktop_computer, R.id.notebook_computer, R.id.service_computer})
-    private void onClick(View v) {
-        Intent intent = new Intent();
-        switch (v.getId()) {
-            case R.id.search_btn:
-                keyWord = searchEdittext.getText().toString().trim();
-                intent.setClass(getActivity(), SearchActivity.class);
-                intent.putExtra("KEYWORD", keyWord);
-                intent.putExtra("TYPE", type);
-                startActivity(intent);
-                type = "";
-                break;
-            case R.id.desktop_computer:
-                resetTextColor();
-                desktopComputer.setTextColor(colorBlue);
-                type = "";
-                type = "台式机";
-                break;
-            case R.id.notebook_computer:
-                resetTextColor();
-                notebookComputer.setTextColor(colorBlue);
-                type = "";
-                type = "笔记本";
-                break;
-            case R.id.service_computer:
-                resetTextColor();
-                seriverComputer.setTextColor(colorBlue);
-                type = "";
-                type = "服务器";
-                break;
-        }
-    }
-
-    /**
-     * 重置字体颜色
-     */
-    private void resetTextColor() {
-        desktopComputer.setTextColor(colorBlack);
-        notebookComputer.setTextColor(colorBlack);
-        seriverComputer.setTextColor(colorBlack);
-    }
-
 
     @Override
     public void onResume() {
@@ -197,5 +171,6 @@ public class HomeFragment extends BaseFragment {
         super.onDestroy();
         mViewPager.stopAutoScroll();
     }
+
 
 }

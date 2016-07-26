@@ -122,7 +122,7 @@ public class LoginActivity extends BaseActivity implements PlatformActionListene
             HashMap map = new HashMap<>();
             map.put("UserName", userName);
             map.put("Password", passWord);
-            HttpRequestUtils.getmInstance().post(LoginActivity.this, Constant.LOGIN_URL, map, new HttpRequestCallBack() {
+            HttpRequestUtils.getmInstance().post(LoginActivity.this, Constant.LOGIN_URL, map, new HttpRequestCallBack<String>() {
                 @Override
                 public void onSuccess(String result) {
                     AppBean<User> appBean = JSONObject.parseObject(result, new TypeReference<AppBean<User>>() {
@@ -194,8 +194,7 @@ public class LoginActivity extends BaseActivity implements PlatformActionListene
                 params.put("NickName", userName);
                 params.put("HeadPhoto", headerIcon);
 
-                HttpRequestUtils.getmInstance().post(LoginActivity.this, Constant.LOGIN_BY_THIRD, params, new HttpRequestCallBack() {
-
+                HttpRequestUtils.getmInstance().post(LoginActivity.this, Constant.LOGIN_BY_THIRD, params, new HttpRequestCallBack<String>() {
                     @Override
                     public void onSuccess(String result) {
 

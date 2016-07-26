@@ -154,5 +154,10 @@
         android:text="忘记密码"
         android:textColor="@color/white" />
 
+    <ImageView
+        android:src="@mipmap/forget_pwd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
 
 </LinearLayout>

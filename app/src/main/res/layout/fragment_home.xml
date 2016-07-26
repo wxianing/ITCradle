@@ -6,71 +6,65 @@
     android:orientation="vertical"
     tools:context="com.meidp.itcradle.fragment.HomeFragment">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginLeft="@dimen/dp10"
-        android:layout_marginRight="@dimen/dp10"
-        android:layout_marginTop="@dimen/dp10"
-        android:background="@drawable/linear_white_bg"
-        android:padding="@dimen/dp1">
+        android:layout_height="210dp">
 
-        <EditText
-            android:id="@+id/search_edittext"
+        <include layout="@layout/auto_viewpager" />
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@drawable/transparent" />
+            android:layout_height="30dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/dp10"
+            android:layout_marginLeft="@dimen/dp30"
+            android:layout_marginRight="@dimen/dp30"
+            android:layout_marginTop="@dimen/dp10"
+            android:background="@drawable/linear_traning_bg"
+            android:padding="@dimen/dp1">
 
-        <Button
-            android:id="@+id/search_btn"
-            android:layout_width="60dp"
-            android:layout_height="match_parent"
-            android:background="@drawable/btn_blue_bg"
-            android:text="搜索"
-            android:textColor="@color/white"
-            android:textSize="@dimen/sp18" />
-    </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp15"
+                android:drawableRight="@mipmap/arrow_down_black"
+                android:text="深圳" />
 
-    <LinearLayout
+            <LinearLayout
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/dp5"
+                android:background="@color/textcolor_gray"
+                android:layout_marginTop="@dimen/dp5"
+                android:layout_marginBottom="@dimen/dp5" />
+
+            <EditText
+                android:id="@+id/search_edittext"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/transparent"
+                android:drawableLeft="@mipmap/search_icon"
+                android:focusable="false"
+                android:hint="请输入产品型号或名称"
+                android:textSize="@dimen/sp14" />
+
+        </LinearLayout>
+    </RelativeLayout>
+
+    <include layout="@layout/horizontal_full_line" />
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/view_pager"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/dp10"
-        android:layout_marginRight="@dimen/dp10"
-        android:padding="@dimen/dp10">
+        android:layout_height="@dimen/dp80" />
 
-        <TextView
-            android:id="@+id/desktop_computer"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="台式机" />
-
-        <TextView
-            android:id="@+id/notebook_computer"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="笔记本" />
-
-        <TextView
-            android:id="@+id/service_computer"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="服务器" />
-    </LinearLayout>
-
-    <include layout="@layout/auto_viewpager" />
+    <include layout="@layout/horizontal_full_line" />
 
     <GridView
         android:id="@+id/grid_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dp10"
         android:listSelector="@color/white"
         android:numColumns="3"
         android:scrollbars="none" />
